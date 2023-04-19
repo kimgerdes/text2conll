@@ -1,0 +1,174 @@
+# sent_id = my_sample__1
+# text = Voici le test N° 17.
+1	Voici	_	_	_	_	_	_	_	_	
+2	le	_	_	_	_	_	_	_	_	
+3	test	_	_	_	_	_	_	_	_	
+4	N°	_	_	_	_	_	_	_	_	
+5	17	_	_	_	_	_	_	_	SpaceAfter=No	
+6	.	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__2
+# text = C'est quand-même
+1	C'	_	_	_	_	_	_	_	_	
+2	est	_	_	_	_	_	_	_	_	
+3	quand-même	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__3
+# text = bête, tout ça, aujourd'hui, avec le la~ lave-linge etc., peu importe ce que l'on dit sur https://blöd.com!!!
+1	bête	_	_	_	_	_	_	_	SpaceAfter=No	
+2	,	_	_	_	_	_	_	_	_	
+3	tout	_	_	_	_	_	_	_	_	
+4	ça	_	_	_	_	_	_	_	SpaceAfter=No	
+5	,	_	_	_	_	_	_	_	_	
+6	aujourd'hui	_	_	_	_	_	_	_	SpaceAfter=No	
+7	,	_	_	_	_	_	_	_	_	
+8	avec	_	_	_	_	_	_	_	_	
+9	le	_	_	_	_	_	_	_	_	
+10	la~	_	_	_	_	_	_	_	_	
+11	lave-linge	_	_	_	_	_	_	_	_	
+12	etc.	_	_	_	_	_	_	_	SpaceAfter=No	
+13	,	_	_	_	_	_	_	_	_	
+14	peu	_	_	_	_	_	_	_	_	
+15	importe	_	_	_	_	_	_	_	_	
+16	ce	_	_	_	_	_	_	_	_	
+17	que	_	_	_	_	_	_	_	_	
+18	l'on	_	_	_	_	_	_	_	_	
+19	dit	_	_	_	_	_	_	_	_	
+20	sur	_	_	_	_	_	_	_	_	
+21	https://blöd.com	_	_	_	_	_	_	_	SpaceAfter=No	
+22	!!!	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__4
+# text = T'en dis quoi, toi ;) ;-) ?
+1	T'	_	_	_	_	_	_	_	_	
+2	en	_	_	_	_	_	_	_	_	
+3	dis	_	_	_	_	_	_	_	_	
+4	quoi	_	_	_	_	_	_	_	SpaceAfter=No	
+5	,	_	_	_	_	_	_	_	_	
+6	toi	_	_	_	_	_	_	_	_	
+7	;)	_	_	_	_	_	_	_	_	
+8	;-)	_	_	_	_	_	_	_	_	
+9	?	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__5
+# text = Vas-y !
+1	Vas	_	_	_	_	_	_	_	SpaceAfter=No	
+2	-y	_	_	_	_	_	_	_	_	
+3	!	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__6
+# text = Ouais, M. le professeur Nr. 2.
+1	Ouais	_	_	_	_	_	_	_	SpaceAfter=No	
+2	,	_	_	_	_	_	_	_	_	
+3	M.	_	_	_	_	_	_	_	_	
+4	le	_	_	_	_	_	_	_	_	
+5	professeur	_	_	_	_	_	_	_	_	
+6	Nr.	_	_	_	_	_	_	_	_	
+7	2	_	_	_	_	_	_	_	SpaceAfter=No	
+8	.	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__7
+# text = J'y crois à 100,00% !
+1	J'	_	_	_	_	_	_	_	_	
+2	y	_	_	_	_	_	_	_	_	
+3	crois	_	_	_	_	_	_	_	_	
+4	à	_	_	_	_	_	_	_	_	
+5	100,00	_	_	_	_	_	_	_	SpaceAfter=No	
+6	%	_	_	_	_	_	_	_	_	
+7	!	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__8
+# text = This is a 2. type of sample text!
+1	This	_	_	_	_	_	_	_	_	
+2	is	_	_	_	_	_	_	_	_	
+3	a	_	_	_	_	_	_	_	_	
+4	2.	_	_	_	_	_	_	_	_	
+5	type	_	_	_	_	_	_	_	_	
+6	of	_	_	_	_	_	_	_	_	
+7	sample	_	_	_	_	_	_	_	_	
+8	text	_	_	_	_	_	_	_	SpaceAfter=No	
+9	!	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__9
+# text = It contains (different) types of punctuation.
+1	It	_	_	_	_	_	_	_	_	
+2	contains	_	_	_	_	_	_	_	_	
+3	(	_	_	_	_	_	_	_	_	
+4	different	_	_	_	_	_	_	_	SpaceAfter=No	
+5	)	_	_	_	_	_	_	_	_	
+6	types	_	_	_	_	_	_	_	_	
+7	of	_	_	_	_	_	_	_	_	
+8	punctuation	_	_	_	_	_	_	_	SpaceAfter=No	
+9	.	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__10
+# text = How to split it?
+1	How	_	_	_	_	_	_	_	_	
+2	to	_	_	_	_	_	_	_	_	
+3	split	_	_	_	_	_	_	_	_	
+4	it	_	_	_	_	_	_	_	SpaceAfter=No	
+5	?	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__11
+# text = Let's see;
+1	Let'	_	_	_	_	_	_	_	_	
+2	s	_	_	_	_	_	_	_	_	
+3	see	_	_	_	_	_	_	_	SpaceAfter=No	
+4	;	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__12
+# text = this is another example: not split here.
+1	this	_	_	_	_	_	_	_	_	
+2	is	_	_	_	_	_	_	_	_	
+3	another	_	_	_	_	_	_	_	_	
+4	example	_	_	_	_	_	_	_	SpaceAfter=No	
+5	:	_	_	_	_	_	_	_	_	
+6	not	_	_	_	_	_	_	_	_	
+7	split	_	_	_	_	_	_	_	_	
+8	here	_	_	_	_	_	_	_	SpaceAfter=No	
+9	.	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__13
+# text = Split Here!
+1	Split	_	_	_	_	_	_	_	_	
+2	Here	_	_	_	_	_	_	_	SpaceAfter=No	
+3	!	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__14
+# text = 123 also works. but here it won't split if new_sent_upper is set.
+1	123	_	_	_	_	_	_	_	_	
+2	also	_	_	_	_	_	_	_	_	
+3	works	_	_	_	_	_	_	_	SpaceAfter=No	
+4	.	_	_	_	_	_	_	_	_	
+5	but	_	_	_	_	_	_	_	_	
+6	here	_	_	_	_	_	_	_	_	
+7	it	_	_	_	_	_	_	_	_	
+8	wo	_	_	_	_	_	_	_	SpaceAfter=No	
+9	n't	_	_	_	_	_	_	_	_	
+10	split	_	_	_	_	_	_	_	_	
+11	if	_	_	_	_	_	_	_	_	
+12	new_sent_upper	_	_	_	_	_	_	_	_	
+13	is	_	_	_	_	_	_	_	_	
+14	set	_	_	_	_	_	_	_	SpaceAfter=No	
+15	.	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__15
+# text = H_ello! regex-fan, this is a $$-test.
+1	H_ello	_	_	_	_	_	_	_	SpaceAfter=No	
+2	!	_	_	_	_	_	_	_	_	
+3	regex-fan	_	_	_	_	_	_	_	SpaceAfter=No	
+4	,	_	_	_	_	_	_	_	_	
+5	this	_	_	_	_	_	_	_	_	
+6	is	_	_	_	_	_	_	_	_	
+7	a	_	_	_	_	_	_	_	_	
+8	$$-	_	_	_	_	_	_	_	_	
+9	test	_	_	_	_	_	_	_	SpaceAfter=No	
+10	.	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__16
+# text = What do you think???!!
+1	What	_	_	_	_	_	_	_	_	
+2	do	_	_	_	_	_	_	_	_	
+3	you	_	_	_	_	_	_	_	_	
+4	think	_	_	_	_	_	_	_	SpaceAfter=No	
+5	???!!	_	_	_	_	_	_	_	_	
