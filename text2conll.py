@@ -3,30 +3,58 @@ import re
 reurl = re.compile(
 	r'''(https?://|\w+@)?[\w\d\%\.]*\w\w\.\w\w[\w\d~/\%\#]*(\?[\w\d~/\%\#]+)*''', 
 	re.U+re.M+re.I)
+# combinations of numbers:
 respacenum = re.compile(
 	r'\d+[ ,.]+[0-9 ,.]*\d+'
 )
+# regex to match escapes \number\ used for special words:
 rerematch = re.compile(
 	r'\\\d+\\'
 )
 
 def tokenize(	text, 
-	     		sent_ends='.;!?\\n', # these characters end a sentence backslach escapes should be double escaped like \\n
-	     		new_sent_upper=".!?", # if not empty, these characters end a sentence only if the following character is upper case, should be a subset of sent_ends
-				char_in_word='_-', # characters that should be treated as letters inside words
-				glue_left="'~", # cut token after these characters 
-				glue_right="", # cut token before these characters 
-				whole_words="aujourd'hui quelqu'un l'on etc. Mr. M. Nr. N° ;) ;-)", # keep these space-separated words as one token
+	     		sent_ends='.;!?\\n', 
+	     		new_sent_upper=".!?", 
+				char_in_word='_-',
+				glue_left="'~", 
+				glue_right="",
+				whole_words="aujourd'hui l'on etc. Mr. M. Nr. N° ;) ;-)",
 				special_suffix="n't -je -tu -il -elle -on -nous -vous -ils -ils -elles -y -t-il -t-elle -t-ils -t-ils -t-on",
-				# keep these space-separated suffixes as separate tokens
-				keep_url=True, # look for URLs and keep them together
-				combine_numbers=True, # spaces, commas, and points between numbers are grouped together such as 999 349
-				sent_cut="", # a unique word or sequence where cutting should be done. if set, sent_ends is ignored
-				escape = '____' # no need to change this. should be letters (\w) used to escape internally. Should not appear anywhere in the text
-				# sent_not_cut="", # TOD: should be added eventually
+				keep_url=True, 
+				combine_numbers=True, 
+				sent_cut="", 
+				escape = '____',
+				sent_not_cut="§§§", 
 				):
 	"""
-	TODO: sent_not_cut: symbols to place after the potential sent_ends that i don't want to cut.
+	text: 
+		Text a transformer en Conll
+	sent_ends='.;!?\\n'
+		These characters end a sentence backslach escapes should be double escaped like \\n
+	new_sent_upper=".!?"
+		If not empty, these characters end a sentence only if the following character is upper case, should be a subset of sent_ends
+	char_in_word='_-', 
+		Characters that should be treated as letters inside words
+	glue_left="'~", 
+		Cut token after these characters 
+	glue_right="" 
+		Cut token before these characters 
+	whole_words="aujourd'hui l'on etc. Mr. M. Nr. N° ;) ;-)", 
+		Keep these space-separated words as one tokens
+	special_suffix="n't -je -tu -il -elle -on -nous -vous -ils -ils -elles -y -t-il -t-elle -t-ils -t-ils -t-on",
+		Keep these space-separated suffixes as separate tokens
+	keep_url=True, 
+		Look for URLs and keep them together
+	combine_numbers=True, 
+		Spaces, commas, and points between numbers are grouped together such as 999 349
+	sent_cut="", 
+	 	A unique word or sequence where cutting should be done. if set, sent_ends is ignored
+	escape = '____', 
+		No need to change this. should be letters (\w) used to escape internally. 
+		Should not appear anywhere in the text
+	sent_not_cut="§§§", # symbols that have been placed after the potential sent_ends that should not end the sentence. 
+		This should be a unique symbol not appearing anywhere naturally in the text as it will be removed from the text.
+		for example use sent_not_cut="§§§"
 	"""
 
 	# replacing words that have to remain untouched
@@ -65,17 +93,32 @@ def tokenize(	text,
 	else:
 		if new_sent_upper:
 			sent_ends_nopoint = re.sub(r'[{new_sent_upper}]+'.format(new_sent_upper=new_sent_upper),'', sent_ends)
-			re_sent_bounds = re.compile(
-				'(([{sent_ends_nopoint}]+\s*)|([{sent_ends}]+\s*(?=[0-9\\\A-ZÀÈÌÒÙÁÉÍÓÚÝÂÊÎÔÛÄËÏÖÜÃÑÕÆÅÐÇØ])))'.format(
-							sent_ends_nopoint=sent_ends_nopoint, sent_ends=new_sent_upper.replace('.','\.')), re.U+re.M)
+			if sent_not_cut:
+				re_sent_bounds = re.compile(
+					'(([{sent_ends_nopoint}]+(?!{sent_not_cut})\s*)|([{sent_ends}]+(?!{sent_not_cut})\s*(?=[0-9\\\A-ZÀÈÌÒÙÁÉÍÓÚÝÂÊÎÔÛÄËÏÖÜÃÑÕÆÅÐÇØ])))'.format(
+								sent_ends_nopoint=sent_ends_nopoint, 
+								sent_ends=new_sent_upper.replace('.','\.'),
+								sent_not_cut=sent_not_cut), re.U+re.M)
+			else:
+				re_sent_bounds = re.compile(
+					'(([{sent_ends_nopoint}]+\s*)|([{sent_ends}]+\s*(?=[0-9\\\A-ZÀÈÌÒÙÁÉÍÓÚÝÂÊÎÔÛÄËÏÖÜÃÑÕÆÅÐÇØ])))'.format(
+								sent_ends_nopoint=sent_ends_nopoint, 
+								sent_ends=new_sent_upper.replace('.','\.'),
+								sent_not_cut=sent_not_cut), re.U+re.M)
 		else:
-			re_sent_bounds = re.compile(
-				'([{sent_ends}]+\s*)'.format(sent_ends=sent_ends), re.U+re.M)
+			if sent_not_cut:
+				re_sent_bounds = re.compile(
+					'([{sent_ends}](?!{sent_not_cut})+\s*)'.format(sent_ends=sent_ends, 
+						    sent_not_cut=sent_not_cut), re.U+re.M)
+			else:
+				re_sent_bounds = re.compile(
+					'([{sent_ends}]+\s*)'.format(sent_ends=sent_ends), re.U+re.M)
+		
 		doubsents = re_sent_bounds.split(ntext)+['']
 		sents = []
 		for i in range(0, len(doubsents), 2):
 			if doubsents[i] and doubsents[i+1]:
-				sents += [(doubsents[i] + (doubsents[i+1] if i+1 < len(doubsents) else '')).strip()]
+				sents += [(doubsents[i].replace(sent_not_cut,'') + (doubsents[i+1] if i+1 < len(doubsents) else '')).strip()]
 	
 	### now we got the sents list, making the actual tokens
 	retok = re.compile("(?!(\\\\d+\\\)|([\\\{} ]+))(\W+)(?!\d)".format(re.escape((char_in_word+glue_left+glue_right).replace('-','\-'))))
@@ -104,6 +147,7 @@ def tokenize(	text,
 			spaceafters += [ii==len(tsl)-1 for ii,tt in enumerate(tsl)]
 		stoks[(si,rs)] = list(zip(toks,spaceafters)) # 'si' makes keys unique and allows duplicate sentences
 	return stoks
+
 
 def conllize(sent2toks,id='my_sample',start=1):
     conlls=[]

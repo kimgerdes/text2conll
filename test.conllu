@@ -1,11 +1,16 @@
 # sent_id = my_sample__1
-# text = Voici le test N° 17.
-1	Voici	_	_	_	_	_	_	_	_	
-2	le	_	_	_	_	_	_	_	_	
-3	test	_	_	_	_	_	_	_	_	
-4	N°	_	_	_	_	_	_	_	_	
-5	17	_	_	_	_	_	_	_	SpaceAfter=No	
-6	.	_	_	_	_	_	_	_	_	
+# text = C'est un test.§§§ Voici le test N° 17.
+1	C'	_	_	_	_	_	_	_	_	
+2	est	_	_	_	_	_	_	_	_	
+3	un	_	_	_	_	_	_	_	_	
+4	test	_	_	_	_	_	_	_	SpaceAfter=No	
+5	.§§§	_	_	_	_	_	_	_	_	
+6	Voici	_	_	_	_	_	_	_	_	
+7	le	_	_	_	_	_	_	_	_	
+8	test	_	_	_	_	_	_	_	_	
+9	N°	_	_	_	_	_	_	_	_	
+10	17	_	_	_	_	_	_	_	SpaceAfter=No	
+11	.	_	_	_	_	_	_	_	_	
 
 # sent_id = my_sample__2
 # text = C'est quand-même
@@ -14,7 +19,7 @@
 3	quand-même	_	_	_	_	_	_	_	_	
 
 # sent_id = my_sample__3
-# text = bête, tout ça, aujourd'hui, avec le la~ lave-linge etc., peu importe ce que l'on dit sur https://blöd.com!!!
+# text = bête, tout ça, aujourd'hui, avec le la~ lave-linge etc., peu importe ce que l'on dit sur https://blöd.com!
 1	bête	_	_	_	_	_	_	_	SpaceAfter=No	
 2	,	_	_	_	_	_	_	_	_	
 3	tout	_	_	_	_	_	_	_	_	
@@ -36,7 +41,7 @@
 19	dit	_	_	_	_	_	_	_	_	
 20	sur	_	_	_	_	_	_	_	_	
 21	https://blöd.com	_	_	_	_	_	_	_	SpaceAfter=No	
-22	!!!	_	_	_	_	_	_	_	_	
+22	!	_	_	_	_	_	_	_	_	
 
 # sent_id = my_sample__4
 # text = T'en dis quoi, toi ;) ;-) ?
@@ -135,40 +140,46 @@
 3	!	_	_	_	_	_	_	_	_	
 
 # sent_id = my_sample__14
-# text = 123 also works. but here it won't split if new_sent_upper is set.
+# text = 123 also works.
 1	123	_	_	_	_	_	_	_	_	
 2	also	_	_	_	_	_	_	_	_	
 3	works	_	_	_	_	_	_	_	SpaceAfter=No	
 4	.	_	_	_	_	_	_	_	_	
-5	but	_	_	_	_	_	_	_	_	
-6	here	_	_	_	_	_	_	_	_	
-7	it	_	_	_	_	_	_	_	_	
-8	wo	_	_	_	_	_	_	_	SpaceAfter=No	
-9	n't	_	_	_	_	_	_	_	_	
-10	split	_	_	_	_	_	_	_	_	
-11	if	_	_	_	_	_	_	_	_	
-12	new_sent_upper	_	_	_	_	_	_	_	_	
-13	is	_	_	_	_	_	_	_	_	
-14	set	_	_	_	_	_	_	_	SpaceAfter=No	
-15	.	_	_	_	_	_	_	_	_	
 
 # sent_id = my_sample__15
-# text = H_ello! regex-fan, this is a $$-test.
-1	H_ello	_	_	_	_	_	_	_	SpaceAfter=No	
-2	!	_	_	_	_	_	_	_	_	
-3	regex-fan	_	_	_	_	_	_	_	SpaceAfter=No	
-4	,	_	_	_	_	_	_	_	_	
-5	this	_	_	_	_	_	_	_	_	
-6	is	_	_	_	_	_	_	_	_	
-7	a	_	_	_	_	_	_	_	_	
-8	$$-	_	_	_	_	_	_	_	_	
-9	test	_	_	_	_	_	_	_	SpaceAfter=No	
-10	.	_	_	_	_	_	_	_	_	
+# text = but here it won't split if new_sent_upper is set.
+1	but	_	_	_	_	_	_	_	_	
+2	here	_	_	_	_	_	_	_	_	
+3	it	_	_	_	_	_	_	_	_	
+4	wo	_	_	_	_	_	_	_	SpaceAfter=No	
+5	n't	_	_	_	_	_	_	_	_	
+6	split	_	_	_	_	_	_	_	_	
+7	if	_	_	_	_	_	_	_	_	
+8	new_sent_upper	_	_	_	_	_	_	_	_	
+9	is	_	_	_	_	_	_	_	_	
+10	set	_	_	_	_	_	_	_	SpaceAfter=No	
+11	.	_	_	_	_	_	_	_	_	
 
 # sent_id = my_sample__16
-# text = What do you think???!!
+# text = H_ello!
+1	H_ello	_	_	_	_	_	_	_	SpaceAfter=No	
+2	!	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__17
+# text = regex-fan, this is a $$-test.
+1	regex-fan	_	_	_	_	_	_	_	SpaceAfter=No	
+2	,	_	_	_	_	_	_	_	_	
+3	this	_	_	_	_	_	_	_	_	
+4	is	_	_	_	_	_	_	_	_	
+5	a	_	_	_	_	_	_	_	_	
+6	$$-	_	_	_	_	_	_	_	_	
+7	test	_	_	_	_	_	_	_	SpaceAfter=No	
+8	.	_	_	_	_	_	_	_	_	
+
+# sent_id = my_sample__18
+# text = What do you think?
 1	What	_	_	_	_	_	_	_	_	
 2	do	_	_	_	_	_	_	_	_	
 3	you	_	_	_	_	_	_	_	_	
 4	think	_	_	_	_	_	_	_	SpaceAfter=No	
-5	???!!	_	_	_	_	_	_	_	_	
+5	?	_	_	_	_	_	_	_	_	
